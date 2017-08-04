@@ -22,11 +22,23 @@ function laberinto() {
 
     for (var j = 0; j < mapa[i].length; j++) {
       var celda = document.createElement("td");
-      celda.setAttribute("contenteditable","true");
+      celda.setAttribute("contenteditable", "true");
       hilera.appendChild(celda);
+
+      if (mapa[i][j] == "*") {
+        // con color
+        celda.setAttribute("class", "verde");
+      } else if (mapa[i][j] == "o") {
+        // entrada color azul
+        celda.setAttribute("class", "azul");
+      } else if (mapa[i][j] == "W") {
+        // salida color rojo
+        celda.setAttribute("class", "rojo");
+      } else {
+        celda.setAttribute("class", "blanco");
+      } // imprimir sin color
     }
 
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
     tblBody.appendChild(hilera);
   }
 
@@ -39,19 +51,3 @@ function laberinto() {
   tabla.setAttribute();
 }
 
-// código reciclado
-// for (var i = 0; i < mapa.length; i++) {
-//   for (var j = 0; j < mapa[i].length; j++)
-//     if (mapa[i][j] == "*") {
-//       // con color
-//       document.write("*");
-//     } else if (mapa[i][j] == "o") {
-//       // entrada color azul
-//       document.write("o");
-//     } else if (mapa[i][j] == "W") {
-//       // salida color rojo
-//       document.write("W");
-//     } else {
-//       document.write("-");
-//     } // imprimir sin color
-// }
