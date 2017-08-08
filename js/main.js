@@ -1,8 +1,8 @@
-function laberinto() {
-  var body = document.getElementsByTagName("body")[0];
-  var tabla = document.createElement("table");
-  var tblBody = document.createElement("tbody");
-
+  var laberinto = document.getElementById('laberinto');
+  var table = document.createElement('table');
+  table.border = "1";
+  table.setAttribute('bordercolor', 'white');
+  table.setAttribute('width', '55%');
   var mapa = [
     "******************",
     "*_________*______*",
@@ -18,36 +18,32 @@ function laberinto() {
   ];
 
   for (var i = 0; i < mapa.length; i++) {
-    var hilera = document.createElement("tr");
+    var tr = document.createElement("tr")
 
     for (var j = 0; j < mapa[i].length; j++) {
-      var celda = document.createElement("td");
-      celda.setAttribute("contenteditable", "true");
-      hilera.appendChild(celda);
+      var td = document.createElement("td");
+      td.setAttribute("contenteditable", "true");
+
 
       if (mapa[i][j] == "*") {
         // con color
-        celda.setAttribute("class", "verde");
+        td.setAttribute("class", "verde");
       } else if (mapa[i][j] == "o") {
         // entrada color azul
-        celda.setAttribute("class", "azul");
+        td.setAttribute("class", "azul");
       } else if (mapa[i][j] == "W") {
         // salida color rojo
-        celda.setAttribute("class", "rojo");
+        td.setAttribute("class", "rojo");
       } else {
-        celda.setAttribute("class", "blanco");
+        td.setAttribute("class", "blanco");
       } // imprimir sin color
+      tr.appendChild(td);
     }
 
-    tblBody.appendChild(hilera);
+    table.appendChild(tr);
+
   }
 
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
-  tabla.setAttribute("width", "50%");
-  tabla.setAttribute();
-}
+  laberinto.appendChild(table);
 
+  
